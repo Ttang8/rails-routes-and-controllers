@@ -42,7 +42,8 @@ class UsersController < ApplicationController
       @user.destroy
       render json: @user
     else
-      render json: ["Cannot delete user!"], status: 404 
+      render json: ["Cannot delete user!"], status: 404
+    end 
   end
 
   private
