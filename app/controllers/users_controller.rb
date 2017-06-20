@@ -43,13 +43,13 @@ class UsersController < ApplicationController
       render json: @user
     else
       render json: ["Cannot delete user!"], status: 404
-    end 
+    end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:username)
   end
 
   def selected_user
