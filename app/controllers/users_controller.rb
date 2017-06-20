@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @user = User.all
 
-    render json: @users
+    render json: @user
   end
 
   def create
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       render json: @user
     else
-      render json: @post.errors.full_messages, status: 400
+      render json: @user.errors.full_messages, status: 400
     end
   end
 

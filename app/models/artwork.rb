@@ -30,4 +30,10 @@ class Artwork < ApplicationRecord
     through: :artwork_shares,
     source: :viewer
 
+  def self.user_artwork(id)
+    Artwork
+      .joins('artwork_shares ON artwork_shares.artwork_id = artwork.id')
+      .where('artworks.artist_id = ? OR artwork_shares.viewer_id = ?', id, id)
+
+  end
 end
